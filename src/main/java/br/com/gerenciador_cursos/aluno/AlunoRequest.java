@@ -32,6 +32,7 @@ public class AlunoRequest {
 	public String getNome() {
 		return nome;
 	}
+
 	public String getSenha() {
 		return senha;
 	}

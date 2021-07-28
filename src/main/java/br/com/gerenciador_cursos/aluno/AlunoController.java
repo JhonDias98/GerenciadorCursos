@@ -22,10 +22,6 @@ public class AlunoController {
 
 	@Autowired
 	private AlunoRepository repository;
-
-	public AlunoController(EntityManager manager) {
-		this.manager = manager;
-	}
 	
 	@PostMapping
 	@Transactional

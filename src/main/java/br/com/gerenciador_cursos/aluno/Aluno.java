@@ -3,6 +3,7 @@ package br.com.gerenciador_cursos.aluno;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -52,7 +53,8 @@ public class Aluno implements UserDetails {
 		this.nome = nome;
 		this.perfis.add(perfil);
 	}
-	
+
+	@Deprecated
 	public Aluno() {}
 
 	public Long getId() {
@@ -109,5 +111,5 @@ public class Aluno implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-	
+
 }

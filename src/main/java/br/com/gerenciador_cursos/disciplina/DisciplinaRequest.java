@@ -14,6 +14,13 @@ public class DisciplinaRequest {
 	@NotNull
 	private Integer individual;
 
+	public DisciplinaRequest(String nome, Integer teoria, Integer pratica, Integer individual) {
+		this.nome = nome;
+		this.teoria = teoria;
+		this.pratica = pratica;
+		this.individual = individual;
+	}
+
 	public String getNome() {
 		return nome;
 	}

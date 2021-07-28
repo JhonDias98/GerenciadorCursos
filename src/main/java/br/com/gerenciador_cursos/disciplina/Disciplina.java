@@ -42,7 +42,8 @@ public class Disciplina {
 		this.individual = individual;
 		this.creditos = pratica + teoria;
 	}
-	
+
+	@Deprecated
 	public Disciplina() {}
 
 	public Long getId() {
