@@ -1,13 +1,8 @@
 package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce;
 
-import br.com.gerenciador_cursos.curso.relacionamento.TipoCurso;
-import br.com.gerenciador_cursos.disciplina.Disciplina;
-
-import java.util.List;
 import java.util.Locale;
-import java.util.stream.Collectors;
 
-public class DisciplinaCursoCEResponse {
+public class DisciplinaCursoEspecificoResponse {
 
 	private Long id;
 	private String nome;
@@ -17,7 +12,7 @@ public class DisciplinaCursoCEResponse {
 	private Integer creditos;
 	private String tipo;
 
-	public DisciplinaCursoCEResponse(DisciplinaCursoCE cursos) {
+	public DisciplinaCursoEspecificoResponse(DisciplinaCursoEspecifico cursos) {
 		this.id = cursos.getDisciplina().getId();
 		this.nome = cursos.getDisciplina().getNome();
 		this.teoria = cursos.getDisciplina().getTeoria();

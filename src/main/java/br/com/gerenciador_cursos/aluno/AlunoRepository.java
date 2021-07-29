@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long>{
 	
-	public Optional<Aluno> findByRa(String ra);
+	Optional<Aluno> findByRa(String ra);
 
-	public boolean existsByRa(String ra);
+	boolean existsByRa(String ra);
 }

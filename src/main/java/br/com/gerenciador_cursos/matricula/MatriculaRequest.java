@@ -3,9 +3,8 @@ package br.com.gerenciador_cursos.matricula;
 import javax.persistence.EntityManager;
 
 import br.com.gerenciador_cursos.aluno.Aluno;
-import br.com.gerenciador_cursos.curso.Curso;
-import br.com.gerenciador_cursos.curso.cursobi.CursoBI;
-import br.com.gerenciador_cursos.curso.cursoce.CursoCE;
+import br.com.gerenciador_cursos.curso.cursobi.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.cursoce.CursoEspecifico;
 
 public class MatriculaRequest {
 
@@ -27,10 +26,10 @@ public class MatriculaRequest {
 	}
 	
 	public Matricula toModelBI(EntityManager manager) {
-		return new Matricula(manager.find(Aluno.class, alunoId), manager.find(CursoBI.class, cursoId));
+		return new Matricula(manager.find(Aluno.class, alunoId), manager.find(BachareladoInterdiciplinar.class, cursoId));
 	}
 
 	public Matricula toModelCE(EntityManager manager) {
-		return new Matricula(manager.find(Aluno.class, alunoId), manager.find(CursoCE.class, cursoId));
+		return new Matricula(manager.find(Aluno.class, alunoId), manager.find(CursoEspecifico.class, cursoId));
 	}
 }

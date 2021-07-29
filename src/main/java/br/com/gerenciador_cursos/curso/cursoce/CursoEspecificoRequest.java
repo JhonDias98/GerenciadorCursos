@@ -4,9 +4,9 @@ import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import br.com.gerenciador_cursos.curso.cursobi.CursoBI;
+import br.com.gerenciador_cursos.curso.cursobi.BachareladoInterdiciplinar;
 
-public class CursoCERequest {
+public class CursoEspecificoRequest {
 
 	@NotBlank
 	private String nome;
@@ -21,7 +21,7 @@ public class CursoCERequest {
 	
 	private Long cursoBI_id;
 
-	public CursoCERequest(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria, Long cursoBI_id) {
+	public CursoEspecificoRequest(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria, Long cursoBI_id) {
 		this.nome = nome;
 		this.codigoCurso = codigoCurso;
 		this.livre = livre;
@@ -54,8 +54,8 @@ public class CursoCERequest {
 		return cursoBI_id;
 	}
 
-	public CursoCE toModel(EntityManager manager) {
-		CursoBI cursoBI = manager.find(CursoBI.class, cursoBI_id);
-		return new CursoCE(nome, codigoCurso, livre, limitada, obrigatoria, cursoBI);
+	public CursoEspecifico toModel(EntityManager manager) {
+		BachareladoInterdiciplinar bachareladoInterdiciplinar = manager.find(BachareladoInterdiciplinar.class, cursoBI_id);
+		return new CursoEspecifico(nome, codigoCurso, livre, limitada, obrigatoria, bachareladoInterdiciplinar);
 	}
 }

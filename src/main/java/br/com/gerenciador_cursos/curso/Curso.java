@@ -18,8 +18,6 @@ public abstract class Curso {
 	@NotNull
 	private Integer obrigatoria;
 
-
-
 	public Curso(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria) {
 		this.nome = nome;
 		this.codigoCurso = codigoCurso;

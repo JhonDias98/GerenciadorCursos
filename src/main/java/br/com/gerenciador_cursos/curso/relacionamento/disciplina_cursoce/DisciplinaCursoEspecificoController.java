@@ -1,6 +1,6 @@
 package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce;
 
-import br.com.gerenciador_cursos.curso.cursoce.CursoCE;
+import br.com.gerenciador_cursos.curso.cursoce.CursoEspecifico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,23 +15,22 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/cursos/ce")
-public class DisciplinaCursoCEController {
+public class DisciplinaCursoEspecificoController {
 
     @PersistenceContext
     private EntityManager manager;
 
     @Autowired
-    private DisciplinaCursoCERepository disciplinaCursoCERepository;
+    private DisciplinaCursoEspecificoRepository disciplinaCursoEspecificoRepository;
 
 
     @GetMapping("/{id}/disciplinas")
-    public ResponseEntity<List<DisciplinaCursoCEResponse>> buscarDisciplinasPorCodigoBI(@PathVariable Long id) {
+    public ResponseEntity<List<DisciplinaCursoEspecificoResponse>> buscarDisciplinasPorCodigoBI(@PathVariable Long id) {
 
-        CursoCE cursoEncontrado = manager.find(CursoCE.class, id);
+        CursoEspecifico cursoEncontrado = manager.find(CursoEspecifico.class, id);
 
-        List<DisciplinaCursoCEResponse> cursos = disciplinaCursoCERepository.findByCursoCE(cursoEncontrado)
-                .stream().map(curso -> new DisciplinaCursoCEResponse(curso)).collect(Collectors.toList());
-
+        List<DisciplinaCursoEspecificoResponse> cursos = disciplinaCursoEspecificoRepository.findByCursoEspecifico(cursoEncontrado)
+                .stream().map(curso -> new DisciplinaCursoEspecificoResponse(curso)).collect(Collectors.toList());
 
         return ResponseEntity.ok().body(cursos);
     }

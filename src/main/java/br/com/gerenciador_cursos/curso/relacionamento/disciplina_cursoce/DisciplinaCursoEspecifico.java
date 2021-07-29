@@ -4,28 +4,28 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.com.gerenciador_cursos.curso.cursoce.CursoCE;
+import br.com.gerenciador_cursos.curso.cursoce.CursoEspecifico;
 import br.com.gerenciador_cursos.curso.relacionamento.RelacionamentoCurso;
 import br.com.gerenciador_cursos.curso.relacionamento.TipoCurso;
 import br.com.gerenciador_cursos.disciplina.Disciplina;
 
 @Entity
 @Table(name = "cursoCE_Disciplina")
-public class DisciplinaCursoCE extends RelacionamentoCurso {
+public class DisciplinaCursoEspecifico extends RelacionamentoCurso {
 
 	@OneToOne
-	private CursoCE cursoCE;
+	private CursoEspecifico cursoEspecifico;
 
-	public DisciplinaCursoCE(Disciplina disciplina, TipoCurso tipoDoCurso, CursoCE cursoCE) {
+	public DisciplinaCursoEspecifico(Disciplina disciplina, TipoCurso tipoDoCurso, CursoEspecifico cursoEspecifico) {
 		super(disciplina, tipoDoCurso);
-		this.cursoCE = cursoCE;
+		this.cursoEspecifico = cursoEspecifico;
 	}
 	
 	@Deprecated
-	public DisciplinaCursoCE() {}
+	public DisciplinaCursoEspecifico() {}
 
-	public CursoCE getCursoCE() {
-		return cursoCE;
+	public CursoEspecifico getCursoCE() {
+		return cursoEspecifico;
 	}
 	
 }

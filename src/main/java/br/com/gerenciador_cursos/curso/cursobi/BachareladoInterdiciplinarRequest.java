@@ -1,11 +1,9 @@
 package br.com.gerenciador_cursos.curso.cursobi;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class CursoBIRequest {
+public class BachareladoInterdiciplinarRequest {
 
 	@NotBlank
 	private String nome;
@@ -18,7 +16,7 @@ public class CursoBIRequest {
 	@NotNull
 	private Integer obrigatoria;
 
-	public CursoBIRequest(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria) {
+	public BachareladoInterdiciplinarRequest(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria) {
 		this.nome = nome;
 		this.codigoCurso = codigoCurso;
 		this.livre = livre;
@@ -46,7 +44,7 @@ public class CursoBIRequest {
 		return obrigatoria;
 	}
 
-	public CursoBI toModel() {
-		return new CursoBI(nome, codigoCurso, livre, limitada, obrigatoria);
+	public BachareladoInterdiciplinar toModel() {
+		return new BachareladoInterdiciplinar(nome, codigoCurso, livre, limitada, obrigatoria);
 	}
 }

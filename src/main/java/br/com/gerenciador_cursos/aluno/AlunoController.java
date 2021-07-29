@@ -32,7 +32,7 @@ public class AlunoController {
 
 		Aluno novoAluno = request.paraEntidade(manager);
 		
-		manager.persist(novoAluno);
+		repository.save(novoAluno);
 		return ResponseEntity.status(HttpStatus.CREATED).body(new AlunoResponse(novoAluno));
 	}
 	
