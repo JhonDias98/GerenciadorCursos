@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/disciplinas")
 public class DisciplinaController {
@@ -17,7 +20,7 @@ public class DisciplinaController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastrarDisciplina(@RequestBody @Valid DisciplinaRequest request) {
+	public ResponseEntity<DisciplinaResponse> cadastrarDisciplina(@RequestBody @Valid DisciplinaRequest request) {
 		if(repository.existsByNome(request.getNome())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();
 		}
@@ -25,7 +28,16 @@ public class DisciplinaController {
 		Disciplina novaDisciplina = request.toModel();
 		repository.save(novaDisciplina);
 		
-		return ResponseEntity.status(HttpStatus.CREATED).build();
+		return ResponseEntity.status(HttpStatus.CREATED).body(new DisciplinaResponse(novaDisciplina));
+	}
+
+	@GetMapping
+	public ResponseEntity<List<DisciplinaDetalheResponse>> consultarTodasDisciplinas() {
+		List<DisciplinaDetalheResponse> disciplinas = repository.findAll()
+				.stream().map(disciplina -> new DisciplinaDetalheResponse(disciplina))
+				.collect(Collectors.toList());
+
+		return ResponseEntity.ok(disciplinas);
 	}
 
 }

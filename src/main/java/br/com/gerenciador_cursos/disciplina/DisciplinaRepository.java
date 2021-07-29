@@ -6,8 +6,4 @@ import java.util.List;
 
 public interface DisciplinaRepository extends JpaRepository<Disciplina, Long> {
     boolean existsByNome(String nome);
-
-    List<Disciplina> findByCursoBIRelacionadoCursoBIId(Long idCurso);
-
-    List<Disciplina> findByCursoCERelacionadoCursoCEId(Long idCurso);
 }
