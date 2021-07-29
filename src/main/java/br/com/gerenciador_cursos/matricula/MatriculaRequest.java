@@ -3,8 +3,8 @@ package br.com.gerenciador_cursos.matricula;
 import javax.persistence.EntityManager;
 
 import br.com.gerenciador_cursos.aluno.Aluno;
-import br.com.gerenciador_cursos.curso.cursobi.BachareladoInterdiciplinar;
-import br.com.gerenciador_cursos.curso.cursoce.CursoEspecifico;
+import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.cursoespecifico.CursoEspecifico;
 
 public class MatriculaRequest {
 

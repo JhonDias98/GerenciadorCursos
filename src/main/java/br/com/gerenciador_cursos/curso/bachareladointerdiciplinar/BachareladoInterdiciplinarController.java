@@ -1,4 +1,4 @@
-package br.com.gerenciador_cursos.curso.cursobi;
+package br.com.gerenciador_cursos.curso.bachareladointerdiciplinar;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursobi.DisciplinaBachareladoInterdiciplinar;
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursobi.DisciplinaBachareladoInterdiciplinarRequest;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar.DisciplinaBachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar.DisciplinaBachareladoInterdiciplinarRequest;
 
 @RestController
 @RequestMapping("/cursos/bi")

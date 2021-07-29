@@ -1,4 +1,4 @@
-package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursobi;
+package br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar;
 
 import java.util.Locale;
 

@@ -1,4 +1,4 @@
-package br.com.gerenciador_cursos.curso.cursoce;
+package br.com.gerenciador_cursos.curso.cursoespecifico;
 
 public class CursoEspecificoResponse {
 

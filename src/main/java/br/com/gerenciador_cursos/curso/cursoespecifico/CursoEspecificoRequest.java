@@ -1,10 +1,10 @@
-package br.com.gerenciador_cursos.curso.cursoce;
+package br.com.gerenciador_cursos.curso.cursoespecifico;
 
 import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import br.com.gerenciador_cursos.curso.cursobi.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
 
 public class CursoEspecificoRequest {
 

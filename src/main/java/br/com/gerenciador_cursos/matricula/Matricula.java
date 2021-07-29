@@ -8,8 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import br.com.gerenciador_cursos.aluno.Aluno;
-import br.com.gerenciador_cursos.curso.cursobi.BachareladoInterdiciplinar;
-import br.com.gerenciador_cursos.curso.cursoce.CursoEspecifico;
+import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.cursoespecifico.CursoEspecifico;
 
 @Entity
 public class Matricula {

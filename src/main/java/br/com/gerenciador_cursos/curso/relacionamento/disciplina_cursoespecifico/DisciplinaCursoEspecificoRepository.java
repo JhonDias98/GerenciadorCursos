@@ -1,6 +1,6 @@
-package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce;
+package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico;
 
-import br.com.gerenciador_cursos.curso.cursoce.CursoEspecifico;
+import br.com.gerenciador_cursos.curso.cursoespecifico.CursoEspecifico;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package br.com.gerenciador_cursos.curso.cursobi;
+package br.com.gerenciador_cursos.curso.bachareladointerdiciplinar;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

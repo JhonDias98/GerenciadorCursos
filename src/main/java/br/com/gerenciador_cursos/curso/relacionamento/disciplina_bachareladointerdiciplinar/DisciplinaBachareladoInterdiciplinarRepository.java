@@ -1,6 +1,6 @@
-package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursobi;
+package br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar;
 
-import br.com.gerenciador_cursos.curso.cursobi.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

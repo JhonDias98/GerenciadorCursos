@@ -1,4 +1,4 @@
-package br.com.gerenciador_cursos.curso.cursoce;
+package br.com.gerenciador_cursos.curso.cursoespecifico;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce.DisciplinaCursoEspecifico;
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce.DisciplinaCursoEspecificoRequest;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico.DisciplinaCursoEspecifico;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico.DisciplinaCursoEspecificoRequest;
 
 @RestController
 @RequestMapping("/cursos/ce")

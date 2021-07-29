@@ -1,7 +1,7 @@
 package br.com.gerenciador_cursos.disciplina;
 
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursobi.DisciplinaBachareladoInterdiciplinar;
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce.DisciplinaCursoEspecifico;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar.DisciplinaBachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico.DisciplinaCursoEspecifico;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

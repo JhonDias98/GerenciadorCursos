@@ -1,6 +1,6 @@
-package br.com.gerenciador_cursos.curso.cursobi;
+package br.com.gerenciador_cursos.curso.bachareladointerdiciplinar;
 
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursobi.DisciplinaBachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar.DisciplinaBachareladoInterdiciplinar;
 
 public class BachareladoInterdiciplinarAssociacaoResponse {
 

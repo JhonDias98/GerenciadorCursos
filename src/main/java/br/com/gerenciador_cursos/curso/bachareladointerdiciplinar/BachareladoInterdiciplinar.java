@@ -1,9 +1,9 @@
-package br.com.gerenciador_cursos.curso.cursobi;
+package br.com.gerenciador_cursos.curso.bachareladointerdiciplinar;
 
 import javax.persistence.*;
 
 import br.com.gerenciador_cursos.curso.Curso;
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursobi.DisciplinaBachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar.DisciplinaBachareladoInterdiciplinar;
 
 @Entity
 public class BachareladoInterdiciplinar extends Curso {

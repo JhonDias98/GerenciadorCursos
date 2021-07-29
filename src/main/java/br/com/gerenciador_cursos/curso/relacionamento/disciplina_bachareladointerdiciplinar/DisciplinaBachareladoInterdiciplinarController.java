@@ -1,6 +1,6 @@
-package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursobi;
+package br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar;
 
-import br.com.gerenciador_cursos.curso.cursobi.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

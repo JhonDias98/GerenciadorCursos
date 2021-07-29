@@ -1,4 +1,4 @@
-package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce;
+package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico;
 
 import java.util.Locale;
 

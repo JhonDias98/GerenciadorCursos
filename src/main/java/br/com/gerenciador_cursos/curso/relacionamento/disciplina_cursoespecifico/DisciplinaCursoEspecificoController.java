@@ -1,6 +1,6 @@
-package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce;
+package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico;
 
-import br.com.gerenciador_cursos.curso.cursoce.CursoEspecifico;
+import br.com.gerenciador_cursos.curso.cursoespecifico.CursoEspecifico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

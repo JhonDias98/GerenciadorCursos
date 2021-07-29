@@ -1,6 +1,6 @@
-package br.com.gerenciador_cursos.curso.cursoce;
+package br.com.gerenciador_cursos.curso.cursoespecifico;
 
-import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoce.DisciplinaCursoEspecifico;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico.DisciplinaCursoEspecifico;
 
 public class CursoEspecificoAssociacaoResponse {
 

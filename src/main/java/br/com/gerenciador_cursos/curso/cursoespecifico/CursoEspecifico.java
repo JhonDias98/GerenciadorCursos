@@ -1,4 +1,4 @@
-package br.com.gerenciador_cursos.curso.cursoce;
+package br.com.gerenciador_cursos.curso.cursoespecifico;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import br.com.gerenciador_cursos.curso.Curso;
-import br.com.gerenciador_cursos.curso.cursobi.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
 
 @Entity
 public class CursoEspecifico extends Curso {
