@@ -17,10 +17,10 @@ public class CursoEspecifico extends Curso {
 	private Long id;
 	
 	@OneToOne
-	private BachareladoInterdiciplinar bachareladoInterdiciplinarID;
-	public CursoEspecifico(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria, BachareladoInterdiciplinar bachareladoInterdiciplinarID) {
+	private BachareladoInterdiciplinar bachareladoInterdiciplinar;
+	public CursoEspecifico(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria, BachareladoInterdiciplinar bachareladoInterdiciplinar) {
 		super(nome, codigoCurso, livre, limitada, obrigatoria);
-		this.bachareladoInterdiciplinarID = bachareladoInterdiciplinarID;
+		this.bachareladoInterdiciplinar = bachareladoInterdiciplinar;
 	}
 
 	@Deprecated
@@ -30,8 +30,8 @@ public class CursoEspecifico extends Curso {
 		return id;
 	}
 
-	public BachareladoInterdiciplinar getCursoBiID() {
-		return bachareladoInterdiciplinarID;
+	public BachareladoInterdiciplinar getBachareladoInterdiciplinar() {
+		return bachareladoInterdiciplinar;
 	}
 	
 }

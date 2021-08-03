@@ -1,4 +1,4 @@
-package br.com.gerenciador_cursos.disciplina;
+package br.com.gerenciador_cursos.curso.bachareladointerdiciplinar;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -18,45 +18,48 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @AutoConfigureDataJpa
 @ActiveProfiles("test")
-class DisciplinaControllerTest {
+class BachareladoInterdiciplinarControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    String requestBody;
+    String requestCursoBI;
+    String requestAssociacao;
 
     @BeforeEach
     public void setup() {
-        requestBody = "{" +
-                "\"nome\":\"Computação II\"," +
-                "\"teoria\":2," +
-                "\"pratica\":1," +
-                "\"individual\":1," +
-                "\"codigo\":\"APS11\"," +
-                "\"interdisciplinar\":\"BCT\"" +
+        requestCursoBI =
+                "{" +
+                    "\"nome\":\"Teste BCT\"," +
+                    "\"codigoCurso\":\"001\"," +
+                    "\"livre\":10," +
+                    "\"limitada\":15," +
+                    "\"obrigatoria\":20" +
+                "}";
+
+        requestAssociacao =
+                "{" +
+                    "\"disciplinaId\":1," +
+                    "\"tipoDoCurso\":\"OBRIGATORIA\"" +
                 "}";
     }
 
     @Test
-    @DisplayName("DEVE cadastrar uma nova disciplina")
+    @DisplayName("DEVE cadastrar um novo Bacharelado Interdiciplinar")
     void test01() throws Exception {
-        mockMvc.perform(post("/disciplinas")
-                .content(requestBody)
+        mockMvc.perform(post("/cursos/bi")
+                .content(requestCursoBI)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated());
     }
 
     @Test
-    @DisplayName("NAO DEVE cadastrar uma disciplina quando o nome já existe no banco de dados")
+    @DisplayName("DEVE associar uma disciplina ao curso")
     void test02() throws Exception {
-        mockMvc.perform(post("/disciplinas")
-                .content(requestBody)
-                .contentType(MediaType.APPLICATION_JSON));
-
-        mockMvc.perform(post("/disciplinas")
-                .content(requestBody)
+        mockMvc.perform(post("/cursos/bi/1")
+                .content(requestAssociacao)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isConflict());
+                .andExpect(status().isOk());
     }
 
 }

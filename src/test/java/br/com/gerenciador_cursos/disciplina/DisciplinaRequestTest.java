@@ -20,11 +20,11 @@ class DisciplinaRequestTest {
     void test1() {
         Disciplina novaDisciplina = disciplinaRequest.toModel();
 
-        assertEquals(novaDisciplina.getNome(), disciplinaRequest.getNome());
-        assertEquals(novaDisciplina.getTeoria(), disciplinaRequest.getTeoria());
-        assertEquals(novaDisciplina.getPratica(), disciplinaRequest.getPratica());
-        assertEquals(novaDisciplina.getIndividual(), disciplinaRequest.getIndividual());
-        assertEquals(novaDisciplina.getCreditos(), (disciplinaRequest.getTeoria() + disciplinaRequest.getPratica()));
+        assertEquals(disciplinaRequest.getNome(), novaDisciplina.getNome());
+        assertEquals(disciplinaRequest.getTeoria(), novaDisciplina.getTeoria());
+        assertEquals(disciplinaRequest.getPratica(), novaDisciplina.getPratica());
+        assertEquals(disciplinaRequest.getIndividual(), novaDisciplina.getIndividual());
+        assertEquals((disciplinaRequest.getTeoria() + disciplinaRequest.getPratica()), novaDisciplina.getCreditos());
     }
 
 }
