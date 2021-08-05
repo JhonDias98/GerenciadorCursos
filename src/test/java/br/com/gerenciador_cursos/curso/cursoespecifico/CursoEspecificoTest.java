@@ -22,7 +22,7 @@ class CursoEspecificoTest {
     @DisplayName("DEVE retornar os dados do Curso Especifico")
     void test01() {
         assertEquals("Engenharia", cursoEspecifico.getNome());
-        assertEquals("001E", cursoEspecifico.getCodigoCurso());
+        assertEquals("001E", cursoEspecifico.getCodigo());
         assertEquals(10, cursoEspecifico.getLivre());
         assertEquals(15, cursoEspecifico.getLimitada());
         assertEquals(20, cursoEspecifico.getObrigatoria());

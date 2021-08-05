@@ -10,7 +10,7 @@ public abstract class Curso {
 	@NotBlank
 	private String nome;
 	@NotBlank
-	private String codigoCurso;
+	private String codigo;
 	@NotNull
 	private Integer livre;
 	@NotNull
@@ -18,9 +18,9 @@ public abstract class Curso {
 	@NotNull
 	private Integer obrigatoria;
 
-	public Curso(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria) {
+	public Curso(String nome, String codigo, Integer livre, Integer limitada, Integer obrigatoria) {
 		this.nome = nome;
-		this.codigoCurso = codigoCurso;
+		this.codigo = codigo;
 		this.livre = livre;
 		this.limitada = limitada;
 		this.obrigatoria = obrigatoria;
@@ -33,8 +33,8 @@ public abstract class Curso {
 		return nome;
 	}
 
-	public String getCodigoCurso() {
-		return codigoCurso;
+	public String getCodigo() {
+		return codigo;
 	}
 
 	public Integer getLivre() {

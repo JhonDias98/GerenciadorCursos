@@ -31,7 +31,7 @@ class BachareladoInterdiciplinarControllerTest {
         requestCursoBI =
                 "{" +
                     "\"nome\":\"Teste BCT\"," +
-                    "\"codigoCurso\":\"001\"," +
+                    "\"codigo\":\"001\"," +
                     "\"livre\":10," +
                     "\"limitada\":15," +
                     "\"obrigatoria\":20" +

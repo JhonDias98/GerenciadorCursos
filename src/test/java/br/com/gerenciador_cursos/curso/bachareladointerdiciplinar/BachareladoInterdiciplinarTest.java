@@ -19,7 +19,7 @@ class BachareladoInterdiciplinarTest {
     @DisplayName("DEVE retornar os dados do Bacharelado Interdiciplinar")
     void test01() {
         assertEquals("Teste BCT", cursoBI.getNome());
-        assertEquals("001", cursoBI.getCodigoCurso());
+        assertEquals("001", cursoBI.getCodigo());
         assertEquals(10, cursoBI.getLivre());
         assertEquals(15, cursoBI.getLimitada());
         assertEquals(20, cursoBI.getObrigatoria());

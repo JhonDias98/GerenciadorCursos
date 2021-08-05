@@ -18,8 +18,8 @@ public class CursoEspecifico extends Curso {
 	
 	@OneToOne
 	private BachareladoInterdiciplinar bachareladoInterdiciplinar;
-	public CursoEspecifico(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria, BachareladoInterdiciplinar bachareladoInterdiciplinar) {
-		super(nome, codigoCurso, livre, limitada, obrigatoria);
+	public CursoEspecifico(String nome, String codigo, Integer livre, Integer limitada, Integer obrigatoria, BachareladoInterdiciplinar bachareladoInterdiciplinar) {
+		super(nome, codigo, livre, limitada, obrigatoria);
 		this.bachareladoInterdiciplinar = bachareladoInterdiciplinar;
 	}
 

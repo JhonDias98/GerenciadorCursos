@@ -77,4 +77,18 @@ public class Disciplina {
 	public DisciplinaCursoEspecifico getCursoCERelacionado() {
 		return cursoCERelacionado;
 	}
+
+	@Override
+	public String toString() {
+		return "Disciplina{" +
+				"id=" + id +
+				", nome='" + nome + '\'' +
+				", teoria=" + teoria +
+				", pratica=" + pratica +
+				", individual=" + individual +
+				", creditos=" + creditos +
+				", cursoBIRelacionado=" + cursoBIRelacionado +
+				", cursoCERelacionado=" + cursoCERelacionado +
+				'}';
+	}
 }

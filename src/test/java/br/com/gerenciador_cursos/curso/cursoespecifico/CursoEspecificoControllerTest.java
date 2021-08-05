@@ -32,7 +32,7 @@ class CursoEspecificoControllerTest {
                 "{" +
                     "\"nome\":\"Engenharia\"," +
                     "\"cursoBI_id\":1," +
-                    "\"codigoCurso\":\"001E\"," +
+                    "\"codigo\":\"001E\"," +
                     "\"livre\":10," +
                     "\"limitada\":15," +
                     "\"obrigatoria\":20" +

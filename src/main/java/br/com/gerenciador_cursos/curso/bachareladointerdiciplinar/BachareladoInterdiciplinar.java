@@ -15,8 +15,8 @@ public class BachareladoInterdiciplinar extends Curso {
 	@OneToOne(mappedBy = "bachareladoInterdiciplinar")
 	private DisciplinaBachareladoInterdiciplinar cursoBIRelacionado;
 
-	public BachareladoInterdiciplinar(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria) {
-		super(nome, codigoCurso, livre, limitada, obrigatoria);
+	public BachareladoInterdiciplinar(String nome, String codigo, Integer livre, Integer limitada, Integer obrigatoria) {
+		super(nome, codigo, livre, limitada, obrigatoria);
 	}
 
 	public BachareladoInterdiciplinar() {}

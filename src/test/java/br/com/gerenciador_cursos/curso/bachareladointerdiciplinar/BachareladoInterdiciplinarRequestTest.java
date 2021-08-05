@@ -21,7 +21,7 @@ class BachareladoInterdiciplinarRequestTest {
         BachareladoInterdiciplinar bachareladoInterdiciplinar = request.toModel();
 
         assertEquals(request.getNome(), bachareladoInterdiciplinar.getNome());
-        assertEquals(request.getCodigoCurso(), bachareladoInterdiciplinar.getCodigoCurso());
+        assertEquals(request.getCodigo(), bachareladoInterdiciplinar.getCodigo());
         assertEquals(request.getLivre(), bachareladoInterdiciplinar.getLivre());
         assertEquals(request.getLimitada(), bachareladoInterdiciplinar.getLimitada());
         assertEquals(request.getObrigatoria(), bachareladoInterdiciplinar.getObrigatoria());

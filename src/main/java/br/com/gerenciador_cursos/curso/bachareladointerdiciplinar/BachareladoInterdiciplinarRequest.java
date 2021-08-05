@@ -8,7 +8,7 @@ public class BachareladoInterdiciplinarRequest {
 	@NotBlank
 	private String nome;
 	@NotBlank
-	private String codigoCurso;
+	private String codigo;
 	@NotNull
 	private Integer livre;
 	@NotNull
@@ -16,35 +16,68 @@ public class BachareladoInterdiciplinarRequest {
 	@NotNull
 	private Integer obrigatoria;
 
-	public BachareladoInterdiciplinarRequest(String nome, String codigoCurso, Integer livre, Integer limitada, Integer obrigatoria) {
+	public BachareladoInterdiciplinarRequest(String nome, String codigo, Integer livre, Integer limitada, Integer obrigatoria) {
 		this.nome = nome;
-		this.codigoCurso = codigoCurso;
+		this.codigo = codigo;
 		this.livre = livre;
 		this.limitada = limitada;
 		this.obrigatoria = obrigatoria;
 	}
 
+	public BachareladoInterdiciplinarRequest() {}
+
 	public String getNome() {
 		return nome;
 	}
 
-	public String getCodigoCurso() {
-		return codigoCurso;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public Integer getLivre() {
 		return livre;
 	}
 
+	public void setLivre(Integer livre) {
+		this.livre = livre;
+	}
+
 	public Integer getLimitada() {
 		return limitada;
+	}
+
+	public void setLimitada(Integer limitada) {
+		this.limitada = limitada;
 	}
 
 	public Integer getObrigatoria() {
 		return obrigatoria;
 	}
 
+	public void setObrigatoria(Integer obrigatoria) {
+		this.obrigatoria = obrigatoria;
+	}
+
+	@Override
+	public String toString() {
+		return "BachareladoInterdiciplinarRequest{" +
+				"nome='" + nome + '\'' +
+				", codigo='" + codigo + '\'' +
+				", livre=" + livre +
+				", limitada=" + limitada +
+				", obrigatoria=" + obrigatoria +
+				'}';
+	}
+
 	public BachareladoInterdiciplinar toModel() {
-		return new BachareladoInterdiciplinar(nome, codigoCurso, livre, limitada, obrigatoria);
+		return new BachareladoInterdiciplinar(nome, codigo, livre, limitada, obrigatoria);
 	}
 }

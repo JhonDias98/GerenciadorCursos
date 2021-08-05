@@ -34,7 +34,7 @@ class CursoEspecificoRequestTest {
         CursoEspecifico cursoEspecifico = request.toModel(manager);
 
         assertEquals(request.getNome(), cursoEspecifico.getNome());
-        assertEquals(request.getCodigoCurso(), cursoEspecifico.getCodigoCurso());
+        assertEquals(request.getCodigo(), cursoEspecifico.getCodigo());
         assertEquals(request.getLivre(), cursoEspecifico.getLivre());
         assertEquals(request.getLimitada(), cursoEspecifico.getLimitada());
         assertEquals(request.getObrigatoria(), cursoEspecifico.getObrigatoria());

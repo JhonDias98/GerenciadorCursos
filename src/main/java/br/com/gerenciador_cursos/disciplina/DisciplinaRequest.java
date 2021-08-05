@@ -21,20 +21,38 @@ public class DisciplinaRequest {
 		this.individual = individual;
 	}
 
+	public DisciplinaRequest() {}
+
 	public String getNome() {
 		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Integer getTeoria() {
 		return teoria;
 	}
 
+	public void setTeoria(Integer teoria) {
+		this.teoria = teoria;
+	}
+
 	public Integer getPratica() {
 		return pratica;
 	}
 
+	public void setPratica(Integer pratica) {
+		this.pratica = pratica;
+	}
+
 	public Integer getIndividual() {
 		return individual;
+	}
+
+	public void setIndividual(Integer individual) {
+		this.individual = individual;
 	}
 
 	public Disciplina toModel() {
