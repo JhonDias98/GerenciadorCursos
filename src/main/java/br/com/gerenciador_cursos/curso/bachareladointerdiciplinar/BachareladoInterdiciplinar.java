@@ -5,6 +5,8 @@ import javax.persistence.*;
 import br.com.gerenciador_cursos.curso.Curso;
 import br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar.DisciplinaBachareladoInterdiciplinar;
 
+import java.util.Objects;
+
 @Entity
 public class BachareladoInterdiciplinar extends Curso {
 
@@ -27,5 +29,18 @@ public class BachareladoInterdiciplinar extends Curso {
 
 	public DisciplinaBachareladoInterdiciplinar getCursoBIRelacionado() {
 		return cursoBIRelacionado;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof BachareladoInterdiciplinar)) return false;
+		BachareladoInterdiciplinar that = (BachareladoInterdiciplinar) o;
+		return Objects.equals(id, that.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }

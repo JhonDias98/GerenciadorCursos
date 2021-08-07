@@ -6,6 +6,7 @@ import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Entity
 public class Disciplina {
@@ -90,5 +91,18 @@ public class Disciplina {
 				", cursoBIRelacionado=" + cursoBIRelacionado +
 				", cursoCERelacionado=" + cursoCERelacionado +
 				'}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Disciplina)) return false;
+		Disciplina that = (Disciplina) o;
+		return Objects.equals(id, that.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }

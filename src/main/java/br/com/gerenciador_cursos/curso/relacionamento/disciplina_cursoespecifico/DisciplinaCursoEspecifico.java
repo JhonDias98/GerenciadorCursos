@@ -10,7 +10,6 @@ import br.com.gerenciador_cursos.curso.relacionamento.TipoCurso;
 import br.com.gerenciador_cursos.disciplina.Disciplina;
 
 @Entity
-@Table(name = "cursoCE_Disciplina")
 public class DisciplinaCursoEspecifico extends RelacionamentoCurso {
 
 	@OneToOne

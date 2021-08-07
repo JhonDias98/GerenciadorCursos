@@ -9,6 +9,8 @@ import javax.persistence.OneToOne;
 import br.com.gerenciador_cursos.curso.Curso;
 import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
 
+import java.util.Objects;
+
 @Entity
 public class CursoEspecifico extends Curso {
 
@@ -33,5 +35,17 @@ public class CursoEspecifico extends Curso {
 	public BachareladoInterdiciplinar getBachareladoInterdiciplinar() {
 		return bachareladoInterdiciplinar;
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof CursoEspecifico)) return false;
+		CursoEspecifico that = (CursoEspecifico) o;
+		return Objects.equals(id, that.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

@@ -10,7 +10,6 @@ import br.com.gerenciador_cursos.curso.relacionamento.TipoCurso;
 import br.com.gerenciador_cursos.disciplina.Disciplina;
 
 @Entity
-@Table(name = "cursoBI_Disciplina")
 public class DisciplinaBachareladoInterdiciplinar extends RelacionamentoCurso {
 	
 	@OneToOne

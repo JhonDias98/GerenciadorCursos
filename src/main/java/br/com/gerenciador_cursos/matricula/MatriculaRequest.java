@@ -1,10 +1,11 @@
 package br.com.gerenciador_cursos.matricula;
 
-import javax.persistence.EntityManager;
-
 import br.com.gerenciador_cursos.aluno.Aluno;
+import br.com.gerenciador_cursos.aluno.AlunoRepository;
 import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinarRepository;
 import br.com.gerenciador_cursos.curso.cursoespecifico.CursoEspecifico;
+import br.com.gerenciador_cursos.curso.cursoespecifico.CursoEspecificoRepository;
 
 public class MatriculaRequest {
 
@@ -25,11 +26,15 @@ public class MatriculaRequest {
 		return cursoId;
 	}
 	
-	public Matricula toModelBI(EntityManager manager) {
-		return new Matricula(manager.find(Aluno.class, alunoId), manager.find(BachareladoInterdiciplinar.class, cursoId));
+	public Matricula toModelBI(AlunoRepository alunoRepository, BachareladoInterdiciplinarRepository bachareladoRepository) {
+		Aluno aluno = alunoRepository.getById(alunoId);
+		BachareladoInterdiciplinar bacharelado = bachareladoRepository.getById(cursoId);
+		return new Matricula(aluno, bacharelado);
 	}
 
-	public Matricula toModelCE(EntityManager manager) {
-		return new Matricula(manager.find(Aluno.class, alunoId), manager.find(CursoEspecifico.class, cursoId));
+	public Matricula toModelCE(AlunoRepository alunoRepository, CursoEspecificoRepository cursoEspecificoRepository) {
+		Aluno aluno = alunoRepository.getById(alunoId);
+		CursoEspecifico cursoEspecifico = cursoEspecificoRepository.getById(cursoId);
+		return new Matricula(aluno, cursoEspecifico);
 	}
 }

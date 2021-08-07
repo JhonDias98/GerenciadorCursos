@@ -42,7 +42,7 @@ public class ExcelService {
     private EntityManager manager;
 
 
-    private String regexSigla = "(\\w+) - .* \\((\\w+)\\)";
+    private String regexSigla = "([a-zA-Z&]+) - .* \\((\\w+)\\)";
 
     public void salvarBacharelado(MultipartFile file) {
         try {
@@ -70,6 +70,7 @@ public class ExcelService {
 
                 matcherSigla.find();
                 String sigla = matcherSigla.group(1);
+                System.out.println(sigla);
                 if(sigla.equals("BC&T") || sigla.equals("BC&H")) {
                     Optional<BachareladoInterdiciplinar> bacharelado = bachareladoRepository.procurarBacharelado(sigla);
                     if(!bacharelado.isPresent()){
