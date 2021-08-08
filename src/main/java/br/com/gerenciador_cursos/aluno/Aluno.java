@@ -77,10 +77,22 @@ public class Aluno implements UserDetails {
 		return matricula;
 	}
 
+	public void atualizarDados(String ra, Senha senha) {
+		this.ra = ra;
+		this.senha = senha.hash();
+	}
+
 	public boolean matriculaPertenceAluno(Long idMatricula) {
 		List<Quadrimestre> quadrimestres = getMatricula().getQuadrimestres();
 		boolean possuiMatricula = quadrimestres.stream().anyMatch(quadrimestre -> quadrimestre.getId() == idMatricula);
 		return possuiMatricula;
+	}
+
+	public boolean cursadaPertenceAluno(Long idCursada) {
+		List<Quadrimestre> quadrimestres = getMatricula().getQuadrimestres();
+		boolean cursou = quadrimestres.stream().anyMatch(quadrimestre ->
+				quadrimestre.getCursadas().stream().anyMatch(cursada -> cursada.getId() == idCursada));
+		return cursou;
 	}
 
 	@Override

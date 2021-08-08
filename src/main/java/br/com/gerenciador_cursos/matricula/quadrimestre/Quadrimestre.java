@@ -1,5 +1,8 @@
 package br.com.gerenciador_cursos.matricula.quadrimestre;
 
+import br.com.gerenciador_cursos.matricula.Matricula;
+import br.com.gerenciador_cursos.matricula.quadrimestre.cursada.Cursada;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +14,12 @@ public class Quadrimestre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "quadrimestre", orphanRemoval = true)
     private List<Cursada> cursadas = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "matricula_id")
+    private Matricula matricula;
 
     public Quadrimestre(List<Cursada> cursadas) {
         this.cursadas = cursadas;

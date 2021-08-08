@@ -1,7 +1,8 @@
-package br.com.gerenciador_cursos.matricula.quadrimestre;
+package br.com.gerenciador_cursos.matricula.quadrimestre.cursada;
 
 import br.com.gerenciador_cursos.curso.relacionamento.TipoCurso;
 import br.com.gerenciador_cursos.disciplina.Disciplina;
+import br.com.gerenciador_cursos.matricula.quadrimestre.Quadrimestre;
 
 import javax.persistence.*;
 
@@ -12,8 +13,12 @@ public class Cursada {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     private Disciplina disciplina;
+
+    @ManyToOne
+    @JoinColumn(name = "quadrimestre_id")
+    private Quadrimestre quadrimestre;
 
     @Enumerated(value = EnumType.STRING)
     private TipoCurso tipo;

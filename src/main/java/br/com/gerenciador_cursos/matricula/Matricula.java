@@ -28,7 +28,7 @@ public class Matricula {
 	@OneToOne
 	private CursoEspecifico cursoEspecifico;
 
-	@OneToMany(cascade = CascadeType.PERSIST)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "matricula")
 	private List<Quadrimestre> quadrimestres = new ArrayList<>();
 
 	@NotNull

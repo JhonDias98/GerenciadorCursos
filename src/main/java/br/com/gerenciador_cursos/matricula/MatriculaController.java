@@ -8,9 +8,10 @@ import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInt
 import br.com.gerenciador_cursos.curso.cursoespecifico.CursoEspecificoRepository;
 import br.com.gerenciador_cursos.disciplina.Disciplina;
 import br.com.gerenciador_cursos.disciplina.DisciplinaRepository;
-import br.com.gerenciador_cursos.matricula.quadrimestre.Cursada;
+import br.com.gerenciador_cursos.matricula.quadrimestre.cursada.Cursada;
 import br.com.gerenciador_cursos.matricula.quadrimestre.Quadrimestre;
 import br.com.gerenciador_cursos.matricula.quadrimestre.QuadrimestreRepository;
+import br.com.gerenciador_cursos.matricula.quadrimestre.cursada.CursadaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,10 +33,13 @@ public class MatriculaController {
 	private AlunoRepository alunoRepository;
 	@Autowired
 	private DisciplinaRepository disciplinaRepository;
+	@Autowired
+	private CursadaRepository cursadaRepository;
 
 	public MatriculaController(MatriculaRepository matriculaRepository, QuadrimestreRepository quadrimestreRepository,
 							   BachareladoInterdiciplinarRepository bachareladoRepository, CursoEspecificoRepository cursoEspecificoRepository,
-							   AlunoRepository alunoRepository, DisciplinaRepository disciplinaRepository
+							   AlunoRepository alunoRepository, DisciplinaRepository disciplinaRepository,
+							   CursadaRepository cursadaRepository
 	) {
 		this.matriculaRepository = matriculaRepository;
 		this.quadrimestreRepository = quadrimestreRepository;
@@ -43,6 +47,7 @@ public class MatriculaController {
 		this.cursoEspecificoRepository = cursoEspecificoRepository;
 		this.alunoRepository = alunoRepository;
 		this.disciplinaRepository = disciplinaRepository;
+		this.cursadaRepository = cursadaRepository;
 	}
 
 	@PostMapping("/curso/bi")
@@ -64,7 +69,7 @@ public class MatriculaController {
 	}
 
 	@PostMapping("/{idAluno}/quadrimestre")
-	//@Transactional
+	@Transactional
 	public ResponseEntity<?> criarQuadrimestre(@PathVariable("idAluno") Long idAluno) {
 		Aluno aluno = alunoRepository.getById(idAluno);
 
@@ -96,6 +101,18 @@ public class MatriculaController {
 		quadrimestre.adicionarDisciplina(cursada);
 		quadrimestreRepository.save(quadrimestre);
 
+		return ResponseEntity.ok().build();
+	}
+
+	@DeleteMapping("{idAluno}/concluidas/{idCursada}")
+	@Transactional
+	public ResponseEntity<?> deletarDisciplina(@PathVariable("idAluno") Long idAluno, @PathVariable("idCursada") Long idCursada) {
+		Aluno aluno = alunoRepository.getById(idAluno);
+		if(aluno.cursadaPertenceAluno(idCursada)) {
+			return ResponseEntity.notFound().build();
+		}
+
+		cursadaRepository.deleteById(idCursada);
 		return ResponseEntity.ok().build();
 	}
 }

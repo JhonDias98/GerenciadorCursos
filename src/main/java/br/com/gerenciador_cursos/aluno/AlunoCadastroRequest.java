@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class AlunoRequest {
+public class AlunoCadastroRequest {
 	
 	@NotBlank
 	private String ra;
@@ -18,7 +18,7 @@ public class AlunoRequest {
 	@NotNull
 	private Long perfilId;
 
-	public AlunoRequest(@NotBlank String ra, @NotBlank String nome, @NotBlank String senha, @NotNull Long perfilId) {
+	public AlunoCadastroRequest(@NotBlank String ra, @NotBlank String nome, @NotBlank String senha, @NotNull Long perfilId) {
 		this.ra = ra;
 		this.nome = nome;
 		this.senha = senha;
