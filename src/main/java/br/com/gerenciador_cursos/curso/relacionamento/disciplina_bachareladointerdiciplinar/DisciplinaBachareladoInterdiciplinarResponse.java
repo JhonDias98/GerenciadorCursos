@@ -1,8 +1,10 @@
 package br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar;
 
+import br.com.gerenciador_cursos.disciplina.Disciplina;
+
 import java.util.Locale;
 
-public class DisciplinaBachareladoInterdiciplinarResponse {
+public class DisciplinaBachareladoInterdiciplinarResponse implements Comparable<DisciplinaBachareladoInterdiciplinarResponse> {
     private Long id;
     private String nome;
     private Integer teoria;
@@ -18,7 +20,21 @@ public class DisciplinaBachareladoInterdiciplinarResponse {
         this.pratica = cursos.getDisciplina().getPratica();
         this.individual = cursos.getDisciplina().getIndividual();
         this.creditos = cursos.getDisciplina().getCreditos();
-        this.tipo = cursos.getTipoDoCurso().toString().toLowerCase(Locale.ROOT);
+        if(cursos.getTipoDoCurso().toString().toLowerCase(Locale.ROOT).equals("obrigatoria")) {
+            this.tipo = "BI";
+        } else {
+            this.tipo = cursos.getTipoDoCurso().toString().toLowerCase(Locale.ROOT);
+        }
+    }
+
+    public DisciplinaBachareladoInterdiciplinarResponse(Disciplina disciplina) {
+        this.id = disciplina.getId();
+        this.nome = disciplina.getNome();
+        this.teoria = disciplina.getTeoria();
+        this.pratica = disciplina.getPratica();
+        this.individual = disciplina.getIndividual();
+        this.creditos = disciplina.getCreditos();
+        this.tipo = "livre";
     }
 
     public Long getId() {
@@ -47,5 +63,15 @@ public class DisciplinaBachareladoInterdiciplinarResponse {
 
     public String getTipo() {
         return tipo;
+    }
+
+    @Override
+    public int compareTo(DisciplinaBachareladoInterdiciplinarResponse disciplina) {
+        if (this.id > disciplina.getId()) {
+            return 1;
+        } if (this.id < disciplina.id) {
+            return -1;
+        }
+        return 0;
     }
 }

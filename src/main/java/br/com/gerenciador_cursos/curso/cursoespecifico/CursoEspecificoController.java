@@ -32,7 +32,7 @@ public class CursoEspecificoController {
 	public ResponseEntity<CursoEspecificoAssociacaoResponse> associarDisciplina(@PathVariable(name = "id") Long cursoId, @RequestBody DisciplinaCursoEspecificoRequest request) {
 		DisciplinaCursoEspecifico associacao = request.toModel(manager, cursoId);
 
-		manager.merge(associacao);
+		manager.persist(associacao);
 
 		return ResponseEntity.status(HttpStatus.OK).body(new CursoEspecificoAssociacaoResponse(associacao));
 	}

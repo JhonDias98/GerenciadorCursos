@@ -2,10 +2,12 @@ package br.com.gerenciador_cursos.disciplina;
 
 import br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar.DisciplinaBachareladoInterdiciplinar;
 import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico.DisciplinaCursoEspecifico;
+import br.com.gerenciador_cursos.matricula.quadrimestre.Quadrimestre;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -30,11 +32,11 @@ public class Disciplina {
 	@NotNull
 	private Integer creditos;
 
-	@OneToOne(mappedBy = "disciplina")
-	private DisciplinaBachareladoInterdiciplinar cursoBIRelacionado;
+	@OneToMany(mappedBy = "disciplina")
+	private List<DisciplinaBachareladoInterdiciplinar> cursoBIRelacionado;
 
-	@OneToOne(mappedBy = "disciplina")
-	private DisciplinaCursoEspecifico cursoCERelacionado;
+	@OneToMany(mappedBy = "disciplina")
+	private List<DisciplinaCursoEspecifico> cursoCERelacionado;
 	
 	public Disciplina(String nome, Integer teoria, Integer pratica, Integer individual) {
 		this.nome = nome;
@@ -71,11 +73,11 @@ public class Disciplina {
 		return creditos;
 	}
 
-	public DisciplinaBachareladoInterdiciplinar getCursoBIRelacionado() {
+	public List<DisciplinaBachareladoInterdiciplinar> getCursoBIRelacionado() {
 		return cursoBIRelacionado;
 	}
 
-	public DisciplinaCursoEspecifico getCursoCERelacionado() {
+	public List<DisciplinaCursoEspecifico> getCursoCERelacionado() {
 		return cursoCERelacionado;
 	}
 

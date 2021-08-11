@@ -1,12 +1,6 @@
 package br.com.gerenciador_cursos.curso.relacionamento;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import br.com.gerenciador_cursos.disciplina.Disciplina;
 
@@ -17,7 +11,7 @@ public abstract class RelacionamentoCurso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne
+	@ManyToOne
 	private Disciplina disciplina;
 	
 	@Enumerated(EnumType.STRING)

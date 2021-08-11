@@ -82,7 +82,7 @@ public class Aluno implements UserDetails {
 		this.senha = senha.hash();
 	}
 
-	public boolean matriculaPertenceAluno(Long idMatricula) {
+	public boolean quadrimestrePertenceAluno(Long idMatricula) {
 		List<Quadrimestre> quadrimestres = getMatricula().getQuadrimestres();
 		boolean possuiMatricula = quadrimestres.stream().anyMatch(quadrimestre -> quadrimestre.getId() == idMatricula);
 		return possuiMatricula;
@@ -91,7 +91,7 @@ public class Aluno implements UserDetails {
 	public boolean cursadaPertenceAluno(Long idCursada) {
 		List<Quadrimestre> quadrimestres = getMatricula().getQuadrimestres();
 		boolean cursou = quadrimestres.stream().anyMatch(quadrimestre ->
-				quadrimestre.getCursadas().stream().anyMatch(cursada -> cursada.getId() == idCursada));
+				quadrimestre.getDisciplinas().stream().anyMatch(cursada -> cursada.getId() == idCursada));
 		return cursou;
 	}
 
@@ -137,8 +137,6 @@ public class Aluno implements UserDetails {
 				", ra='" + ra + '\'' +
 				", nome='" + nome + '\'' +
 				", senha='" + senha + '\'' +
-				", matricula=" + matricula +
-				", perfis=" + perfis +
 				'}';
 	}
 }

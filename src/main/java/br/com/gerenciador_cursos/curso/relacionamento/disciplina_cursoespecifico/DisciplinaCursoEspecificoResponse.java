@@ -1,8 +1,11 @@
 package br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico;
 
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_bachareladointerdiciplinar.DisciplinaBachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.disciplina.Disciplina;
+
 import java.util.Locale;
 
-public class DisciplinaCursoEspecificoResponse {
+public class DisciplinaCursoEspecificoResponse implements Comparable<DisciplinaCursoEspecificoResponse> {
 
 	private Long id;
 	private String nome;
@@ -13,13 +16,42 @@ public class DisciplinaCursoEspecificoResponse {
 	private String tipo;
 
 	public DisciplinaCursoEspecificoResponse(DisciplinaCursoEspecifico cursos) {
+
 		this.id = cursos.getDisciplina().getId();
 		this.nome = cursos.getDisciplina().getNome();
 		this.teoria = cursos.getDisciplina().getTeoria();
 		this.pratica = cursos.getDisciplina().getPratica();
 		this.individual = cursos.getDisciplina().getIndividual();
 		this.creditos = cursos.getDisciplina().getCreditos();
-		this.tipo = cursos.getTipoDoCurso().toString().toLowerCase(Locale.ROOT);
+		if(cursos.getTipoDoCurso().toString().toLowerCase(Locale.ROOT).equals("obrigatoria")) {
+			this.tipo = "CE";
+		} else {
+			this.tipo = cursos.getTipoDoCurso().toString().toLowerCase(Locale.ROOT);
+		}
+	}
+
+	public DisciplinaCursoEspecificoResponse(DisciplinaBachareladoInterdiciplinar cursos) {
+		this.id = cursos.getDisciplina().getId();
+		this.nome = cursos.getDisciplina().getNome();
+		this.teoria = cursos.getDisciplina().getTeoria();
+		this.pratica = cursos.getDisciplina().getPratica();
+		this.individual = cursos.getDisciplina().getIndividual();
+		this.creditos = cursos.getDisciplina().getCreditos();
+		if(cursos.getTipoDoCurso().toString().toLowerCase(Locale.ROOT).equals("obrigatoria")) {
+			this.tipo = "BI";
+		} else {
+			this.tipo = cursos.getTipoDoCurso().toString().toLowerCase(Locale.ROOT);
+		}
+	}
+
+	public DisciplinaCursoEspecificoResponse(Disciplina disciplina) {
+		this.id = disciplina.getId();
+		this.nome = disciplina.getNome();
+		this.teoria = disciplina.getTeoria();
+		this.pratica = disciplina.getPratica();
+		this.individual = disciplina.getIndividual();
+		this.creditos = disciplina.getCreditos();
+		this.tipo = "livre";
 	}
 
 	public Long getId() {
@@ -48,5 +80,15 @@ public class DisciplinaCursoEspecificoResponse {
 
 	public String getTipo() {
 		return tipo;
+	}
+
+	@Override
+	public int compareTo(DisciplinaCursoEspecificoResponse disciplina) {
+		if (this.id > disciplina.getId()) {
+			return 1;
+		} if (this.id < disciplina.id) {
+			return -1;
+		}
+		return 0;
 	}
 }

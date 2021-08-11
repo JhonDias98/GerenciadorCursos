@@ -1,14 +1,12 @@
 package br.com.gerenciador_cursos.curso.cursoespecifico;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import br.com.gerenciador_cursos.curso.Curso;
 import br.com.gerenciador_cursos.curso.bachareladointerdiciplinar.BachareladoInterdiciplinar;
+import br.com.gerenciador_cursos.curso.relacionamento.disciplina_cursoespecifico.DisciplinaCursoEspecifico;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,8 +16,12 @@ public class CursoEspecifico extends Curso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne
+	@ManyToOne
 	private BachareladoInterdiciplinar bachareladoInterdiciplinar;
+
+	@OneToMany(mappedBy = "cursoEspecifico")
+	private List<DisciplinaCursoEspecifico> relacionamentos;
+
 	public CursoEspecifico(String nome, String codigo, Integer livre, Integer limitada, Integer obrigatoria, BachareladoInterdiciplinar bachareladoInterdiciplinar) {
 		super(nome, codigo, livre, limitada, obrigatoria);
 		this.bachareladoInterdiciplinar = bachareladoInterdiciplinar;
@@ -34,6 +36,10 @@ public class CursoEspecifico extends Curso {
 
 	public BachareladoInterdiciplinar getBachareladoInterdiciplinar() {
 		return bachareladoInterdiciplinar;
+	}
+
+	public List<DisciplinaCursoEspecifico> getRelacionamentos() {
+		return relacionamentos;
 	}
 
 	@Override

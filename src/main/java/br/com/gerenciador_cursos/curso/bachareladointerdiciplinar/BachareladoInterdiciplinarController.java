@@ -32,7 +32,7 @@ public class BachareladoInterdiciplinarController {
 	public ResponseEntity<BachareladoInterdiciplinarAssociacaoResponse> associarDisciplina(@PathVariable(name = "id") Long cursoId, @RequestBody DisciplinaBachareladoInterdiciplinarRequest request) {
 		DisciplinaBachareladoInterdiciplinar associacao = request.toModel(manager, cursoId);
 		
-		manager.merge(associacao);
+		manager.persist(associacao);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(new BachareladoInterdiciplinarAssociacaoResponse(associacao));
 	}
