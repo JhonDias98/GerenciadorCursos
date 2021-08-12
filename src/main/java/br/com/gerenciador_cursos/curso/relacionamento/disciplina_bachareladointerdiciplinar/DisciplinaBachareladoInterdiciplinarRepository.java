@@ -9,5 +9,4 @@ import java.util.List;
 public interface DisciplinaBachareladoInterdiciplinarRepository extends JpaRepository<DisciplinaBachareladoInterdiciplinar, Long> {
     List<DisciplinaBachareladoInterdiciplinar> findByBachareladoInterdiciplinar(BachareladoInterdiciplinar cursoBI);
 
-    //Disciplina findByBachareladoInterdiciplina_IdAndDisciplina_nome(Long id, String nome);
 }
